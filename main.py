@@ -31,7 +31,6 @@ json = {
 cookies = None
 chromecookies = os.path.join(os.path.expandvars("%userprofile%"),"AppData\\Local\\Google\\Chrome\\User Data\\Default\\Network\\Cookies")
 cookies = browser_cookie3.chrome(cookie_file=chromecookies, domain_name=DOMAIN_NAME)
-# cookies = browser_cookie3.load(domain_name=DOMAIN_NAME)
 
 cookies_list = [ cookie.name for cookie in cookies ]
 found = "account_id" in cookies_list
@@ -69,7 +68,6 @@ def sign():
             cookies=cookies,
             json=json
         )
-        print(response.json())
         return response.json()
     except Exception as e:
         print("ERROR:", e)
